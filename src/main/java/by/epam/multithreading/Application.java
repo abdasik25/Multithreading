@@ -29,7 +29,7 @@ public class Application {
             executorService.awaitTermination(TIMEOUT_IN_SECONDS, TimeUnit.SECONDS);
             LOGGER.info("\n" + matrix + " was updated.");
         } catch (InterruptedException e) {
-            LOGGER.warn("Interrupted ", e);
+            LOGGER.warn("Was interrupted by ", e);
             Thread.currentThread().interrupt();
         }
     }

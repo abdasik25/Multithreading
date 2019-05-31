@@ -28,13 +28,13 @@ public class DiagonalChangerThread implements Runnable {
             matrixCell = matrix.getUnchangedDiagonalElement();
             if (matrixCell.isPresent()) {
                 matrixCell.get().setCellValue(threadNumber);
-                LOGGER.debug("Matrix cell was initialized with " + matrixCell.get().getCellValue());
+                LOGGER.info("Matrix cell was initialized with " + matrixCell.get().getCellValue());
                 phaser.arriveAndAwaitAdvance();
             } else {
                 phaser.arriveAndDeregister();
                 break;
             }
         }
-        LOGGER.info(Thread.currentThread().getName() + " finished");
+        LOGGER.info(Thread.currentThread() + " was finished.");
     }
 }

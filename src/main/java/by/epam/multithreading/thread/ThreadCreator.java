@@ -37,7 +37,7 @@ public class ThreadCreator {
                     .map(d -> new DiagonalChangerThread(d, phaser))
                     .collect(Collectors.toList());
         } else {
-            LOGGER.warn("Input data for threads is incorrect");
+            LOGGER.warn("Input data for threads is incorrect.");
         }
         return diagonalChangers;
     }

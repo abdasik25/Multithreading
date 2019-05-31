@@ -50,7 +50,7 @@ public class Matrix {
             for (int i = 0; i < data.length; i++) {
                 if (!data[i][i].wasChanged()) {
                     data[i][i].setWasChanged(true);
-                    LOGGER.debug("Cell at [" + i + "]" + "[" + i + "] was changed");
+                    LOGGER.info("Cell at [" + i + "]" + "[" + i + "] was changed.");
                     return Optional.of(data[i][i]);
                 }
             }
@@ -64,30 +64,30 @@ public class Matrix {
         MatrixParser matrixParser = new MatrixParser();
         DataFileReader dataFileReader = new DataFileReader();
         MatrixValidator matrixValidator = new MatrixValidator();
-        List<String> matrixDigits = null;
+        List<String> matrixDigitsList = null;
         try {
-            matrixDigits = dataFileReader.read(MATRIX_DATA_FILEPATH);
+            matrixDigitsList = dataFileReader.read(MATRIX_DATA_FILEPATH);
         } catch (DataFileNotFoundException e) {
             e.printStackTrace();
         }
-        if (!matrixValidator.validate(matrixDigits)) {
-            LOGGER.fatal("Invalid matrix data at " + MATRIX_DATA_FILEPATH);
+        if (!matrixValidator.validate(matrixDigitsList)) {
+            LOGGER.fatal("Invalid matrix data at file " + MATRIX_DATA_FILEPATH);
             throw new InvalidMatrixDataException();
         }
         Matrix matrix = new Matrix();
-        matrix.data = matrixParser.parseMatrix(matrixDigits);
+        matrix.data = matrixParser.parseMatrix(matrixDigitsList);
         return matrix;
     }
 
     @Override
     public String toString() {
-        StringBuilder buffer = new StringBuilder();
+        StringBuilder stringBuilder = new StringBuilder();
         for (int i = 0; i < data.length; i++) {
             for (int j = 0; j < data[0].length; j++) {
-                buffer.append(data[i][j].getCellValue()).append(" ");
+                stringBuilder.append(data[i][j].getCellValue()).append(" ");
             }
-            buffer.append("\n");
+            stringBuilder.append("\n");
         }
-        return buffer.toString();
+        return stringBuilder.toString();
     }
 }

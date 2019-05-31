@@ -30,7 +30,7 @@ public class MatrixValidator implements Validator {
                     return false;
                 }
                 if (i == j && !numbers.get(j).equals("0")) {
-                    LOGGER.error("Main diagonal element at [" + i + "]" + "[" + j + "] != 0");
+                    LOGGER.error("Main diagonal element at [" + i + "]" + "[" + j + "] is not 0.");
                     return false;
                 }
             }
