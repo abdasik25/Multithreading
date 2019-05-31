@@ -9,15 +9,19 @@ import java.util.List;
 public class MatrixValidator implements Validator {
 
     private static final Logger LOGGER = LogManager.getLogger();
-    private static final String MATRIX_NUMBERS_REGEX_PATTERN = "^(-?\\d+)$";
+    private static final String MATRIX_NUMBERS_REGEX_PATTERN = "^(-?\\d+ ){6}$";
     private static final String MATRIX_SPACES_REGEX_PATTERN = " ";
+
+    private boolean validateLine(String line) {
+        return line != null && line.matches(MATRIX_NUMBERS_REGEX_PATTERN);
+    }
 
     @Override
     public boolean validate(List<String> list) {
         for (int i = 0; i < list.size(); i++) {
             List<String> numbers = Arrays.asList(list.get(i).split(MATRIX_SPACES_REGEX_PATTERN));
             for (int j = 0; j < numbers.size(); j++) {
-                if (!(list.get(i).matches(MATRIX_NUMBERS_REGEX_PATTERN) && list.get(i) != null)) {
+                if (!validateLine(list.get(i))) {
                     LOGGER.error("Matrix was not validated. Line: " + list.get(i) + " is not valid.");
                     return false;
                 }
