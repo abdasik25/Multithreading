@@ -1,3 +1,8 @@
+/**
+ * Created by Alexander Lomat on 29.05.19
+ * Version 0.0.1
+ */
+
 package by.epam.multithreading.thread;
 
 import by.epam.multithreading.exception.DataFileNotFoundException;
@@ -13,7 +18,6 @@ import java.util.stream.Collectors;
 public class ThreadCreator {
 
     private static Logger LOGGER = LogManager.getLogger();
-
 
     public List<DiagonalChangerThread> create(String path) {
         DataFileReader dataFileReader = new DataFileReader();

@@ -1,3 +1,8 @@
+/**
+ * Created by Alexander Lomat on 29.05.19
+ * Version 0.0.1
+ */
+
 package by.epam.multithreading.reader;
 
 import by.epam.multithreading.exception.DataFileNotFoundException;
@@ -12,6 +17,7 @@ import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 public class DataFileReader {
+
     private static Logger LOGGER = LogManager.getLogger();
 
     public List<String> read(String filePath) throws DataFileNotFoundException {

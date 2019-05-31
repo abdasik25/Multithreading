@@ -1,3 +1,8 @@
+/**
+ * Created by Alexander Lomat on 31.05.19
+ * Version 0.0.3
+ */
+
 package by.epam.multithreading.thread;
 
 import by.epam.multithreading.matrix.Matrix;

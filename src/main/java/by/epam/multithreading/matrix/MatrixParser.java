@@ -1,3 +1,8 @@
+/**
+ * Created by Alexander Lomat on 29.05.19
+ * Version 0.0.1
+ */
+
 package by.epam.multithreading.matrix;
 
 import java.util.Arrays;
